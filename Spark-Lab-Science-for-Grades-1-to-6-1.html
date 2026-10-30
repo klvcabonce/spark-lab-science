@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Spark Lab – Science for Grades 1 to 6</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;700&display=swap">
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=06HU2UkKW-0kEw5Zihm2uXNoUx_6FehMoGVRrG4UcCmduYB9SWZtpTT_eHmYYnDCcUS4ZSDHa8_RCc01y7pGmME_3zpBY6og2vDnzUEa-qOm3NOcFqDzpP9UvcAzvtm2lN_FkAIfU9CpQysLPcYftla9ROzJlPqzn0D8yJQiWPY7IVP4AjigU24kFU39fWJkWeg6F2qNEA-vR9B8YiIYmOUsO5vlO8JjR1Gui468EqM5FeZr3Xf3_O0pQfk05v4va_WVHZNJRz9lK27Kk9_Sq3tTqDqT3zkv1DCFU09xCMJp1eV6UnHBMysFEBWj-RRD5_ecyY0JGx7VAmcrqQuFCmla0fgUAF-JNk55KF2vDTbqOZjnx0HXaG8aAWgzz07BIfa8HCvVQ6bsCkzi8MS3uJv_DUhZiL69UGV4JxzN5v-glvVbhiLi9QN0nFq5xqt1wLGwXzORuFOoEmD5q51xZMFjQtuX8qWlAhLrFxqneh8w64jTxlynl1Cp-Q-jj6NPZkBq-R5HxRzTMoy58pWxspXN5YG4deRxv0Nm5bUiBpbuuTl5n7kqm-iXiz0JQRrTrmAi4jnUBKj7ujAJi-c7EIiZrASvW6R4VI-rcUlfqUa_494dCjS7KMURB3BO4fCgmZFWZeef00Yt41P2jAfoS37yvqmJK5g-T_BPtR17yu7xROHNgVVI291p-JdvnWs4YSEC4d-coqEYRNJcX34meP1mb20PrpOCBByrVSnRvBBDk5SHS9uw-VdyhxUqZRyZtyaGu-jaQ4ilP57--1BgGw" charset="UTF-8"></script><style>
+:root{--bg:#eaf6ff;--card:#fff;--ink:#17224d;--line:#17224d;--dk:#17224d;--g1:#ff7a8a;--g2:#ffab40;--g3:#ffd84d;--g4:#4fd8c8;--g5:#6db6ff;--g6:#b49cff;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1838;--card:#1a2552;--ink:#f1f5ff;--line:#9fb2ff}}
+:root[data-theme="dark"]{--bg:#0f1838;--card:#1a2552;--ink:#f1f5ff;--line:#9fb2ff}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Fredoka","Trebuchet MS",system-ui,sans-serif;font-size:1.1rem;line-height:1.5}
+.w{max-width:1080px;margin:0 auto;padding:0 20px}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 0;flex-wrap:wrap}
+.logo{font-weight:700;font-size:1.5rem}
+.tools{display:flex;gap:8px}
+.btn{background:var(--g3);color:var(--dk);border:3px solid var(--line);border-radius:999px;padding:.4rem 1.1rem;font-weight:700;box-shadow:0 4px 0 var(--line)}
+.btn:active{transform:translateY(3px);box-shadow:0 1px 0 var(--line)}
+.btn.alt{background:var(--card);color:var(--ink)}
+.edbar{display:none;background:var(--g3);color:var(--dk);border:3px dashed var(--dk);border-radius:14px;padding:8px 14px;margin-bottom:12px;font-size:1rem}
+body.editing .edbar{display:block}
+body.editing [data-k]{outline:2px dashed var(--ink);outline-offset:3px;cursor:text}
+.hero{display:grid;gap:28px;padding:20px 0 36px;align-items:center}
+@media(min-width:820px){.hero{grid-template-columns:1.5fr 1fr}}
+h1{font-size:clamp(2.3rem,6vw,4.1rem);line-height:1.05;margin:0 0 14px;font-weight:700}
+.sub{max-width:34em;margin:0 0 22px}
+.pick{font-weight:700;margin:0 0 10px}
+#grades{display:flex;flex-wrap:wrap;gap:10px}
+.gb{background:var(--c);color:var(--dk);border:3px solid var(--line);border-radius:999px;padding:.5rem 1.1rem;font-weight:700;font-size:1.1rem;transition:transform .15s}
+.gb[aria-pressed="true"]{transform:translateY(-4px);box-shadow:0 5px 0 var(--line)}
+.gb[aria-pressed="true"]::before{content:"✓ "}
+.fact{background:var(--card);border:3px solid var(--line);border-radius:24px;padding:20px;transform:rotate(-2deg);box-shadow:8px 8px 0 var(--g4)}
+.fact h2{margin:0 0 6px;font-size:1.3rem}
+#fact{margin:0 0 14px;min-height:4.5em}
+h2.sec{font-size:clamp(1.6rem,4vw,2.3rem);margin:8px 0 18px}
+#subs{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 18px}
+.sb{background:var(--card);color:var(--ink);border:3px solid var(--line);border-radius:999px;padding:.3rem 1rem;font-weight:700;font-size:1rem}
+.sb[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.sb[aria-pressed="true"]::before{content:"✓ "}
+.chip{display:inline-block;margin-bottom:8px;padding:.1rem .7rem;border:2px solid var(--line);border-radius:999px;background:var(--bg);font-size:.9rem;font-weight:700}
+.pic{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:4px 6px;padding:12px 8px;background:var(--bg);border-bottom:3px solid var(--line)}
+.pic figure{margin:0;text-align:center;width:86px}
+.pic .em{font-size:2.3rem;line-height:1.1;display:block}
+.pic figcaption{font-size:.8rem;line-height:1.15;font-weight:500}
+.cn{font-size:1.4rem;font-weight:700}
+.bar{height:12px;border:2px solid var(--line);border-radius:99px;overflow:hidden;margin-bottom:12px}
+.bar i{display:block;height:100%;background:var(--c)}
+.rk{font-size:1.5rem;font-weight:700;margin:0 0 8px}
+.by{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.by .chip{margin:0}
+.grid{display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));margin-bottom:44px}
+.card{background:var(--card);border:3px solid var(--line);border-radius:20px;box-shadow:6px 6px 0 var(--c);overflow:hidden}
+.band{background:var(--c);color:var(--dk);display:flex;align-items:center;gap:12px;padding:12px 16px;border-bottom:3px solid var(--line)}
+.band h3{margin:0;font-size:1.3rem;line-height:1.15}
+.ic{font-size:2.3rem}
+.body{padding:14px 16px 18px}
+.body p{margin:0 0 12px}
+.try{background:var(--c);color:var(--dk);border:2px solid var(--line);border-radius:999px;padding:.25rem .9rem;font-weight:700;font-size:1rem}
+.fig{background:var(--bg);padding:8px;border-bottom:3px solid var(--line)}
+.fig svg{width:100%;max-width:460px;margin:0 auto;height:auto;display:block;border-radius:12px}
+.cap{margin:6px 0 0!important;font-size:.85rem;text-align:center}
+.scroll{overflow-x:auto}
+.pt{display:grid;grid-template-columns:repeat(18,minmax(38px,1fr));gap:2px;min-width:760px}
+.pt span{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:42px;color:#17224d;border-radius:4px;font-weight:700;font-size:.9rem;line-height:1.1}
+.pt small{font-size:.55rem;font-weight:500}
+.lg{display:flex;flex-wrap:wrap;gap:4px 12px;margin-top:8px;font-size:.85rem}
+.lg i{display:inline-block;width:14px;height:14px;border-radius:3px;border:1px solid var(--line);vertical-align:-2px;margin-right:4px}
+.card.wide{grid-column:1/-1}
+.vid{display:inline-block;margin:8px 0 0 4px;font-weight:700;color:var(--ink)}
+@keyframes pl{0%,15%{transform:scale(1.2)}25%,100%{transform:scale(1)}}
+.act{display:none;white-space:pre-line;margin:12px 0 0!important;padding:10px 12px;border-left:5px solid var(--c);background:var(--bg);border-radius:8px}
+.act.on,body.editing .act{display:block}
+.quiz{background:var(--card);border:3px solid var(--line);border-radius:24px;padding:22px;margin-bottom:44px;box-shadow:6px 6px 0 var(--c)}
+.quiz h3{font-size:1.5rem;margin:0 0 14px;line-height:1.2}
+.qq{margin:0 0 4px;font-weight:700}
+.opts{display:grid;gap:10px;max-width:520px}
+.opt{text-align:left;background:var(--bg);border:3px solid var(--line);border-radius:14px;padding:.6rem 1rem;font-weight:500}
+.opt:disabled{cursor:default;color:var(--ink)}
+.opt.ok{background:var(--g4);color:var(--dk)}.opt.ok::before{content:"✓ "}
+.opt.no{background:var(--g1);color:var(--dk)}.opt.no::before{content:"✗ "}
+#fb{min-height:1.6em;margin:12px 0;font-weight:700}
+.res{font-size:2.2rem;margin:0}
+footer{padding:20px 0 40px;border-top:3px solid var(--line);font-size:1rem}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<div class="w">
+<header class="top">
+  <div class="logo">🔬 Spark Lab</div>
+  <div class="tools"><button class="btn goq">🎯 Take the quiz</button><button class="btn alt" id="reset" hidden>Reset text</button><button class="btn" id="edit" aria-pressed="false">Edit page</button></div>
+</header>
+<div class="edbar" role="note">Edit mode is on. Click any text with a dashed outline and type to change it. Your changes save in this browser.</div>
+
+<section class="hero">
+  <div>
+    <h1 id="ht" data-k="h.title"></h1>
+    <p class="sub" id="hs" data-k="h.sub"></p>
+    <p class="pick">Pick your grade:</p>
+    <div id="grades" role="group" aria-label="Choose a grade"></div>
+    <p style="margin:18px 0 0"><button class="btn goq">🎯 Take the quiz</button></p>
+  </div>
+  <aside class="fact">
+    <h2>💡 Did you know?</h2>
+    <p id="fact"></p>
+    <button class="btn" id="more">Surprise me!</button>
+  </aside>
+</section>
+
+<main>
+  <h2 class="sec" id="gh"></h2>
+  <div id="subs" role="group" aria-label="Choose a branch of science"></div>
+  <div class="grid" id="topics"></div>
+  <section class="quiz" id="quiz" aria-labelledby="qt">
+    <h2 class="sec" id="qt" style="margin-top:0">🎯 Quiz: 10 questions</h2>
+    <div id="qbox"></div>
+  </section>
+</main>
+<footer>Made for curious kids in Grades 1 to 6. Always ask a grown-up to help with experiments!</footer>
+</div>
+
+<script>
+const D={h:{title:"Discover the amazing world of science!",sub:"Explore biology, chemistry, physics and earth science. Pick your grade, try easy experiments at home, and test what you know."},
+t:[
+[["🌱","Plants Need Sun","Plants use sunlight, water and air to grow big and strong.","Grow two bean seeds: one in the sun and one in a dark closet. Which grows better?","bio"],
+ ["🥄","Mix and Dissolve","Some things, like sugar, mix into water and seem to disappear.","Stir sugar, sand and salt into three cups of water. Which ones disappear?","chem"],
+ ["🛝","Push and Pull","A push or a pull can start, stop or change the way things move.","Roll a ball down a ramp. How can you make it go farther?","phy"],
+ ["🌙","Day and Night","The Earth spins, so we get sunshine in the day and stars at night.","Shine a flashlight on a ball and slowly turn it. Where is day? Where is night?","earth"]],
+[["🦎","Animal Homes","A habitat gives animals the food, water and shelter they need.","Draw an animal and build its habitat inside a shoebox.","bio"],
+ ["🧊","Solid, Liquid, Gas","Matter changes form when it gets hotter or colder.","Watch an ice cube melt. What do you think happens if you heat the water?","chem"],
+ ["🛟","Sink or Float","Whether something floats depends on its shape as well as its weight.","Squash a ball of foil and it sinks. Fold it into a boat and see what happens.","phy"],
+ ["⛅","Weather Watchers","Sun, rain, wind and clouds change from day to day.","Keep a weather chart for one week and draw the sky each morning.","earth"]],
+[["🦋","Life Cycles","A butterfly grows from egg to caterpillar to chrysalis to adult.","Draw the four stages of a frog’s life in a circle.","bio"],
+ ["🫧","Fizz and Bubbles","Mixing some materials makes something brand new, like bubbly gas.","With a grown-up, mix baking soda and vinegar in a bottle with a balloon on top.","chem"],
+ ["🧲","Magnets","Magnets push and pull some metals without even touching them.","Test objects around the room with a magnet and sort them into two groups.","phy"],
+ ["🪨","Rocks and Soil","Rocks slowly break into tiny pieces that become soil for plants.","Collect three rocks and compare their colors and textures.","earth"]],
+[["🦊","Food Chains","Energy travels from the Sun to plants to the animals that eat them.","Make a food chain from paper links and hang it up.","bio"],
+ ["🍋","Acids and Bases","Lemon juice is an acid and soap is a base. Special dyes change color to show which is which.","Use red cabbage juice to test lemon juice and soapy water.","chem"],
+ ["🔊","Light and Sound","Light travels in straight lines and sound travels in waves.","Hum with your fingers on your throat and feel the vibrations.","phy"],
+ ["💧","The Water Cycle","Water evaporates, forms clouds, and falls again as rain.","Seal a cup of water in a clear bag near a window and watch drops form.","earth"]],
+[["🫀","Body Systems","Your heart, lungs and brain work as a team to keep you going.","Check your pulse before and after ten jumping jacks.","bio"],
+ ["🧪","Mixtures","Some mixtures can be separated by filtering or evaporating.","Stir sand and salt into water, filter it, then let the water dry up.","chem"],
+ ["🪂","Gravity and Friction","Gravity pulls things down, and friction slows things that slide.","Slide a toy car down a ramp covered with paper, foil, then cloth. Which is slowest?","phy"],
+ ["🪐","Our Solar System","Eight planets travel around the Sun, each with its own path.","Place beads on a long string to show how far apart the planets are.","earth"]],
+[["🔬","Cells","Cells are the tiny building blocks of every living thing.","Look at a photo of onion skin cells and count how many you can see.","bio"],
+ ["⚛️","Atoms and Elements","Everything is made of tiny atoms, and the periodic table lists every element.","Find the symbols for oxygen, carbon and gold on a periodic table.","chem"],
+ ["⚡","Electricity","Electric current flows around a closed path called a circuit.","Light a small bulb with a battery and wires, then add a switch.","phy"],
+ ["🌋","Moving Plates","Earth’s crust is made of plates that cause volcanoes and earthquakes.","Push two sheets of paper together on a table and watch the “mountains” rise.","earth"]]],
+f:["An octopus has three hearts.","A day on Venus is longer than a year on Venus.","Butterflies taste with their feet!","Sound travels about four times faster in water than in air.","Lightning can be about five times hotter than the surface of the Sun.","Honey can last a very long time without spoiling."]};
+const Q=[
+[{s:"bio",q:"What do plants need to grow?",o:["Sunlight and water","Candy","Only darkness"],a:0},{s:"chem",q:"What happens to sugar stirred into water?",o:["It dissolves","It turns to ice","It catches fire"],a:0},{s:"phy",q:"A push or a pull can make a ball…",o:["Start moving","Turn into water","Grow roots"],a:0},{s:"earth",q:"When can we see the stars?",o:["At noon","At night","Never"],a:1}],
+[{s:"bio",q:"A habitat is where an animal…",o:["Lives","Sleeps in a car","Does homework"],a:0},{s:"chem",q:"Ice turning into water is called…",o:["Freezing","Melting","Boiling"],a:1},{s:"phy",q:"Which one will float?",o:["A rock","A coin","A wooden block"],a:2},{s:"earth",q:"Which tool measures temperature?",o:["Thermometer","Ruler","Scale"],a:0}],
+[{s:"bio",q:"What comes after a caterpillar?",o:["Egg","Chrysalis","Tadpole"],a:1},{s:"chem",q:"Baking soda and vinegar make…",o:["Bubbly gas","A magnet","Ice"],a:0},{s:"phy",q:"A magnet will pick up…",o:["An iron nail","A wooden spoon","A plastic cup"],a:0},{s:"earth",q:"Soil is made from…",o:["Tiny rock pieces and dead plants","Plastic","Clouds"],a:0}],
+[{s:"bio",q:"In a food chain, where does the energy start?",o:["The Sun","A lion","The soil"],a:0},{s:"chem",q:"Lemon juice is an…",o:["Acid","Base","Metal"],a:0},{s:"phy",q:"Sound travels as…",o:["Waves","Colors","Magnets"],a:0},{s:"earth",q:"Water turning into vapor is called…",o:["Condensation","Evaporation","Precipitation"],a:1}],
+[{s:"bio",q:"Which organ pumps blood around your body?",o:["Lungs","Brain","Heart"],a:2},{s:"chem",q:"How can you get salt back from salt water?",o:["Let the water evaporate","Freeze it","Shake it"],a:0},{s:"phy",q:"Which force slows a sliding toy?",o:["Friction","Magnetism","Sunlight"],a:0},{s:"earth",q:"Which planet is closest to the Sun?",o:["Venus","Mercury","Mars"],a:1}],
+[{s:"bio",q:"Which part of a cell holds its DNA?",o:["Nucleus","Wall","Membrane"],a:0},{s:"chem",q:"What is the chemical symbol for oxygen?",o:["O","Ox","Gn"],a:0},{s:"phy",q:"A closed path for electricity is a…",o:["Circuit","Crust","Cloud"],a:0},{s:"earth",q:"Earthquakes are caused by moving…",o:["Plates","Winds","Tides"],a:0}]];
+[`👀|Five Senses|We see, hear, smell, taste and touch to learn about the world.|Put a toy in a bag and guess what it is using only touch.|bio
+🧊|Hot and Cold|Heat warms things up and cooling makes them cold. We can feel the difference with our skin.|Feel three cups of water (cold, room, warm) and sort them from coldest to warmest.|chem
+🔦|Light and Shadows|A shadow forms when something blocks the light.|Make hand-shadow animals on a wall with a flashlight.|phy
+⭐|Sun, Moon and Stars|The Sun is a star that gives us light and heat. The Moon shines by reflecting sunlight.|Look at the Moon for a week and draw its shape each night.|earth`,
+`🌸|Parts of a Plant|Roots drink water, stems carry it up, leaves make food and flowers make seeds.|Stand a celery stick in colored water and watch the color climb the stem.|bio
+🪵|Materials|Things are made of materials like wood, metal, glass and plastic. Each is good for a different job.|Hunt for objects at home and sort them by material.|chem
+🎸|Making Sounds|Sounds come from things that wiggle back and forth. These wiggles are called vibrations.|Pluck a stretched rubber band and watch it blur.|phy
+🌊|Land and Water|Earth has land and water. Most of our planet is covered by oceans.|Find the blue and green parts on a globe.|earth`,
+`🐕|Animal Groups|Scientists sort animals into groups, such as mammals, birds, fish and reptiles.|Sort animal pictures by what covers their bodies.|bio
+🔩|Rust|Iron turns reddish-brown when water and air touch it. This is a chemical change.|Put one nail in damp cotton and one in dry cotton. Check each day.|chem
+💡|Energy|Energy makes things move, glow and get warm. It comes in many forms.|List five things at home that use energy.|phy
+🌋|Volcanoes|A volcano erupts when hot melted rock rises from deep inside Earth.|With a grown-up, build a clay volcano and “erupt” it with baking soda and vinegar.|earth`,
+`🌰|Seed to Flower|A seed sprouts, grows into a plant, makes flowers, and the flowers make new seeds.|Sprout a bean in a bag with a wet paper towel and watch the roots appear.|bio
+🔥|Kinds of Changes|Cutting paper only changes its shape. Burning paper makes brand-new materials.|List kitchen changes. Which ones can be undone?|chem
+⚙️|Simple Machines|Levers, ramps, wheels and gears make work easier.|Use a ruler and an eraser as a lever to lift a book.|phy
+🏞️|Weathering and Erosion|Wind and water slowly break rocks into pieces and carry them away.|Pour water over a sand pile and watch it flow downhill.|earth`,
+`🍃|Photosynthesis|Leaves use sunlight, water and carbon dioxide to make food, and they give out oxygen.|Put a leafy plant by a window and see which way it leans.|bio
+🍎|Chemical Reactions|In a chemical reaction, materials change into new materials.|Leave an apple slice out and watch it turn brown.|chem
+🥤|Light Bends|Light bends when it moves from air into water, so a straw looks broken.|Put a pencil in a glass of water and look from the side.|phy
+🪨|The Rock Cycle|Rocks slowly change from one kind to another over millions of years.|Make “sedimentary rock” by pressing layers of colored clay.|earth`,
+`🌳|Ecosystems|Plants, animals and tiny decomposers all depend on each other.|Seal soil, plants and a few pill bugs in a jar and watch for a week.|bio
+🧬|Molecules|Atoms join together to make molecules. Two hydrogen atoms and one oxygen atom make water.|Build water molecules from clay balls and toothpicks.|chem
+🔥|Heat Transfer|Heat moves by touch (conduction), by moving fluids (convection) and by rays (radiation).|Put a metal spoon and a wooden spoon in warm water. Which gets hot first?|phy
+🌍|Layers of the Earth|Earth has a thin crust, a thick mantle, and a hot core.|Cut a hard-boiled egg and match shell, white and yolk to Earth’s layers.|earth`]
+.forEach((b,gi)=>b.split("\n").forEach(r=>D.t[gi].push(r.split("|"))));
+const I=[
+[">|☀️ Sunlight|💧 Water|💨 Air|🌱 Strong plant".replace(">","+"),"+|🍬 Sugar|🥛 Water|🥤 Sugar water",">|👉 Push or pull|⚽ Starts moving|💨 Goes farther",">|☀️ Day|🌍 Earth spins|🌙 Night",",|👀 See|👂 Hear|👃 Smell|👅 Taste|🖐️ Touch",">|🧊 Cold|💧 Cool|☕ Warm|🔥 Hot",">|🔦 Light|✋ Blocked|🌑 Shadow",",|☀️ Sun|🌙 Moon|⭐ Stars"],
+[",|🐠 Ocean fish|🐻 Forest bear|🐪 Desert camel|🐧 Polar penguin",">|🧊 Solid|💧 Liquid|☁️ Gas",",|🪨 Rock sinks|🦆 Duck floats|⛵ Boat floats",",|☀️ Sunny|🌧️ Rainy|💨 Windy|⛈️ Stormy",",|🌸 Flower|🍃 Leaf|🌿 Stem|🥕 Roots",",|🪵 Wood|🔩 Metal|🥛 Glass|🧴 Plastic",">|🎸 Pluck|〰️ Vibrate|👂 Hear",",|🌊 Oceans|⛰️ Mountains|🏞️ Rivers"],
+[">|🥚 Egg|🐛 Caterpillar|🛡️ Chrysalis|🦋 Butterfly","+|🥄 Baking soda|🍶 Vinegar|🫧 Bubbly gas",",|🧲 Magnet|🔩 Iron: sticks|🪵 Wood: no",">|🪨 Rock|🌬️ Wind and rain|🟫 Soil|🌱 Plants",",|🐕 Mammals|🐦 Birds|🐟 Fish|🐍 Reptiles","+|🔩 Iron|💧 Water|💨 Air|🟫 Rust",",|☀️ Light|🔊 Sound|🔥 Heat|⚡ Electric",">|🔥 Hot magma|🌋 Volcano|☁️ Ash"],
+[">|☀️ Sun|🌿 Grass|🐇 Rabbit|🦊 Fox",",|🍋 Acid: lemon|💧 Neutral: water|🧼 Base: soap",",|💡 Light: straight lines|🔊 Sound: waves",">|☀️ Evaporation|☁️ Condensation|🌧️ Rain|🌊 Collection",">|🌰 Seed|🌱 Sprout|🌳 Plant|🌸 Flower",",|✂️ Cutting: same stuff|🔥 Burning: new stuff",",|⚖️ Lever|📐 Ramp|⚙️ Gear|🛞 Wheel",">|🌧️ Rain and wind|🪨 Rock breaks|🏞️ Valley forms"],
+[",|🫀 Heart|🫁 Lungs|🧠 Brain|🦴 Bones",">|🥣 Mixture|🧻 Filter out sand|☀️ Dry out water",",|🍎 Gravity pulls down|🛹 Friction slows",">|☀️ Sun|🌍 4 rocky planets|🪐 4 giant planets","+|☀️ Sunlight|💧 Water|💨 CO₂|🫧 Oxygen and sugar","+|🍎 Apple|💨 Oxygen|🟤 Brown apple",">|🔦 Light|🥛 Water bends it|👀 Looks bent",">|🌋 Igneous: cooled lava|💧 Sedimentary: packed layers|🔥 Metamorphic: heat and squeeze"],
+[",|🫧 Membrane|🧠 Nucleus|⚡ Mitochondria",">|⚛️ Atoms|🔗 Join up|🧬 Molecules",">|🔋 Battery|🔌 Wire|💡 Bulb",">|🪨 Plates push|🏔️ Mountains|🌋 Volcanoes",",|🌳 Producers|🦌 Consumers|🍄 Decomposers","+|⚛️ 2 Hydrogen|🫧 1 Oxygen|💧 Water",",|🥄 Conduction: touch|🌊 Convection: flow|☀️ Radiation: rays",">|🟫 Crust|🟧 Mantle|🟨 Outer core|🔴 Inner core"]];
+D.f.push("Light from the Sun takes about eight minutes to reach Earth.","Plants make much of the oxygen we breathe.","Pencil lead and diamonds are both made of carbon.","Your heart beats about 100,000 times every day.","A rainbow is sunlight split into colors by raindrops.","Sharks are older than trees.","Water is the only common material you can find as a solid, liquid and gas on Earth.");
+[`bio|Which body part do we smell with?|Nose|Elbow|Knee|0
+chem|What do we call frozen water?|Ice|Steam|Soup|0
+phy|What forms when something blocks light?|A shadow|A rainbow|A magnet|0
+earth|What can we see in the night sky?|Moon and stars|A rainbow|Snow|0
+bio|Which animal lives in water?|Fish|Cow|Cat|0
+earth|What does the Sun give us?|Light and heat|Only snow|Only rain|0`,
+`bio|Which part of a plant drinks water?|Roots|Flower|Fruit|0
+chem|Which material is see-through?|Glass|Wood|Metal|0
+phy|Sound is made when things…|Vibrate|Freeze|Melt|0
+earth|Most of Earth is covered by…|Water|Sand|Grass|0
+bio|A penguin’s habitat is…|Cold, icy lands|Hot deserts|Tall cities|0
+chem|Steam is water as a…|Gas|Solid|Rock|0`,
+`bio|Which animals have feathers?|Birds|Fish|Insects|0
+chem|What makes iron turn red-brown?|Water and air|Magnets|Moonlight|0
+phy|Which of these is a type of energy?|Light|Rock|Table|0
+earth|What comes out of an erupting volcano?|Lava and ash|Snow|Milk|0
+bio|Animals with fur that feed their babies milk are…|Mammals|Reptiles|Insects|0
+phy|Where is a magnet strongest?|At its two poles|In the middle|The same everywhere|0`,
+`bio|A seed grows first into a…|Sprout|Flower|Fruit|0
+chem|Burning paper is…|A chemical change|Only a shape change|Melting|0
+phy|A ramp is also called…|An inclined plane|A pulley|A gear|0
+earth|Moving water slowly wearing away land is…|Erosion|Evaporation|Eclipse|0
+bio|Animals that eat only plants are…|Herbivores|Carnivores|Decomposers|0
+phy|Light travels…|In straight lines|Only in circles|Only at night|0`,
+`bio|Which gas do plants give out?|Oxygen|Helium|Smoke|0
+chem|An apple slice turning brown is…|A chemical reaction|A filter|A circuit|0
+phy|Light bending in water is called…|Refraction|Friction|Erosion|0
+earth|Rock made from cooled lava is…|Igneous|Sedimentary|Metamorphic|0
+bio|Which body system moves blood around?|Circulatory|Digestive|Skeletal|0
+earth|How many planets orbit our Sun?|8|7|9|0`,
+`bio|Plants, animals and decomposers together form an…|Ecosystem|Element|Engine|0
+chem|What is water’s chemical formula?|H₂O|CO₂|O₂|0
+phy|Heat moving by direct touch is…|Conduction|Radiation|Convection|0
+earth|Which layer of Earth is thinnest?|Crust|Mantle|Core|0
+bio|Plant cells have this, but animal cells do not:|A cell wall|A nucleus|A membrane|0
+earth|The hottest layer of Earth is…|The inner core|The crust|The mantle|0`]
+.forEach((b,gi)=>b.split("\n").forEach(r=>{const p=r.split("|");Q[gi].push({s:p[0],q:p[1],o:[p[2],p[3],p[4]],a:+p[5]})}));
+[`🐾|Pets and Wild Animals|Pets live with people. Wild animals live outdoors and find their own food.|Draw one pet and one wild animal. How are their homes different?|bio
+🎈|Air Is Everywhere|Air is all around us even though we cannot see it. It takes up space.|Blow up a balloon and feel the air rush out.|chem
+🚗|Fast and Slow|Some things move fast and some move slowly. We can compare how quickly they go.|Race a toy car and a ball down the same ramp. Which is faster?|phy
+💧|Water Around Us|We find water in rivers, lakes, oceans, rain and even the air.|List every place you saw water today.|earth`,
+`🐟|Life in the Water|Fish breathe underwater with gills and swim with fins.|Look at a fish picture and draw its fins, tail and gills.|bio
+🍳|Cooking Changes Things|Heat can change food. An egg goes from runny to firm when it is cooked.|With a grown-up, watch an egg change as it cooks.|chem
+🪁|Wind Power|Moving air is called wind. Wind can push kites, sailboats and pinwheels.|Make a paper pinwheel and blow on it.|phy
+🍂|The Four Seasons|Weather follows a pattern through the year called the seasons.|Draw the same tree in each of the four seasons.|earth`,
+`🌿|Food for Plants and Animals|Plants make their own food. Animals must eat plants or other animals.|Sort your lunch into foods that come from plants and from animals.|bio
+🧂|Salt and Water|Salt dissolves in water. When the water dries up, the salt comes back.|Dissolve salt in warm water and let it dry on a plate.|chem
+🎈|Static Electricity|Rubbing some things together makes a charge that can attract small things.|Rub a balloon on your hair, then see it stick to a wall.|phy
+🏜️|Landforms|Earth’s surface has landforms like mountains, valleys, deserts and islands.|Build landforms out of clay on a tray.|earth`,
+`🦴|Skeleton and Muscles|Bones hold our body up and muscles pull on them to make us move.|Make a fist and feel the bones and muscles in your hand move.|bio
+🧼|Soap and Germs|Soap helps water wash dirt and germs off our hands.|Sprinkle pepper on water, touch it with a soapy finger and watch it scatter.|chem
+🌈|Colors of Light|White light is made of many colors. Raindrops can split it into a rainbow.|Shine a flashlight through a glass of water onto white paper.|phy
+🌪️|Severe Weather|Storms form when warm air and water move fast. Knowing the signs helps us stay safe.|Make a family storm safety plan.|earth`,
+`🐝|Pollination|Bees carry pollen from flower to flower so plants can make seeds and fruit.|Draw a bee visiting two flowers and show how the pollen travels.|bio
+⚗️|Density|Dense things are heavy for their size. Oil floats on water because it is less dense.|Pour syrup, water and oil into a jar and look at the layers.|chem
+💡|Energy Changes Form|Energy can change from one kind to another, like electricity into light in a bulb.|Find three devices and say what energy goes in and what comes out.|phy
+☁️|Climate Zones|Climate is the usual weather in a place over many years. Earth has hot, mild and cold zones.|Compare the weather in two cities on a map.|earth`,
+`🧬|Heredity and Genes|Genes pass traits like eye color from parents to children.|Survey classmates about a trait, like tongue rolling, and make a bar graph.|bio
+🧱|The Periodic Table|Elements are arranged in rows and columns by their properties.|Make element cards with the symbol and a use for ten elements.|chem
+🚀|Newton’s Laws|Forces change motion, and every action has an equal and opposite reaction.|Blow up a balloon and let it go to see action and reaction.|phy
+🌡️|Climate Change|Burning fuels adds gases that trap heat, so Earth is slowly warming. We can help by saving energy.|List three ways your family could save energy.|earth`]
+.forEach((b,gi)=>b.split("\n").forEach(r=>D.t[gi].push(r.split("|"))));
+[[",|🐶 Pets live with us|🦁 Wild animals live outside",">|🫁 Blow|🎈 Air fills balloon|💨 Air rushes out",">|🐢 Slow|🚲 Medium|🚗 Fast|🚀 Very fast",",|🌧️ Rain|🏞️ River|🌊 Ocean|🚰 Tap"],
+[",|🐟 Fins to swim|🫧 Gills to breathe|🌊 Water home",">|🥚 Raw egg|🔥 Heat|🍳 Cooked egg",">|💨 Wind|🪁 Pushes kite|⛵ Pushes boat",",|🌸 Spring|☀️ Summer|🍂 Autumn|❄️ Winter"],
+[",|🌱 Plants make food|🐄 Animals eat food",">|🧂 Salt|💧 Dissolves|☀️ Water dries|🧂 Salt returns",">|🎈 Rub balloon|💇 Hair charges|🧱 Sticks to wall",",|⛰️ Mountain|🏜️ Desert|🏝️ Island|🌄 Valley"],
+[",|🦴 Bones hold us up|💪 Muscles pull|🧍 We move",">|🦠 Germs|🧼 Soap and water|🙌 Clean hands",">|☀️ Sunlight|💧 Raindrops|🌈 Rainbow",">|🌡️ Warm air rises|☁️ Storm cloud|⚡ Thunder and rain"],
+[">|🐝 Bee visits flower|🌼 Pollen sticks|🍎 Fruit grows",",|🍯 Syrup sinks|💧 Water in middle|🫒 Oil floats",">|🔋 Electric energy|💡 Light bulb|🔥 Light and heat",",|🏜️ Hot zone|🌳 Mild zone|🧊 Cold zone"],
+[">|🧑 Parents|🧬 Genes pass on|👶 Child’s traits",",|🥇 Metals: gold, iron|🫧 Nonmetals: oxygen|🎈 Noble gases: helium",">|💨 Air shoots back|🎈 Balloon shoots forward|🚀 Rockets work too",">|🏭 Gases from burning|🌍 Heat gets trapped|🌡️ Earth warms"]]
+.forEach((a,gi)=>I[gi].push(...a));
+D.t.forEach(g=>g.forEach(x=>x[3]=""));
+`0.0|Plants are living things that make their own food. A plant uses sunlight, water from the soil and air to grow. The roots take in water, the stem carries it upward, and the leaves catch sunlight. Without light, water or air, a plant becomes weak and may die. That is why we water plants and keep them where light can reach them.
+0.1|When you stir sugar into water, the tiny sugar pieces spread out so evenly that you can no longer see them. We say the sugar dissolves, and the mixture is called a solution. The sugar is still there, because the water tastes sweet. Some things, like sand, do not dissolve. They stay as small bits that sink to the bottom.
+0.2|A force is a push or a pull. A force can make something start moving, stop moving, speed up, slow down or change direction. A bigger push makes a ball roll farther. Kicking a ball is a push, and opening a drawer by its handle is a pull. Forces are all around us, even when nothing seems to be moving.
+0.3|Earth spins like a top, and one full spin takes about 24 hours. The side facing the Sun has day, and the side facing away has night. The Sun does not travel across the sky. It only seems to, because Earth is turning. Sunrise and sunset happen as our part of Earth turns toward or away from the Sun.
+1.0|A habitat is the place where an animal finds food, water, shelter and space. Different habitats have different conditions. Fish live in water and breathe with gills. Camels live in deserts and can go a long time without drinking. Penguins live in cold places and have thick feathers and a layer of fat to stay warm. Each animal has body parts that help it live in its own habitat.
+1.1|Matter is anything that takes up space and has mass. It usually comes in three states. A solid keeps its own shape. A liquid takes the shape of its container and can flow. A gas spreads out to fill the space it is in. Heating melts ice into water, and more heat turns water into steam, which is water vapor. Cooling reverses these changes.
+1.2|Whether something floats depends on how much matter is packed into its size, not just how heavy it feels. A huge ship floats because its shape holds a lot of air, so it is not very dense overall. A small pebble sinks because it is dense. A ball of foil sinks, but the same foil folded into a boat shape can float.
+1.3|Weather is what the air outside is like right now: sunny, cloudy, rainy, windy or snowy. It can change from hour to hour. A thermometer measures temperature, a wind vane shows wind direction and a rain gauge measures rain. Writing down the weather each day helps us notice patterns, such as which months are rainy.
+2.0|A life cycle is the series of changes a living thing goes through as it grows and has young of its own. A butterfly has four stages: egg, larva (the caterpillar), pupa (the chrysalis) and adult. The caterpillar eats leaves and grows, then changes inside the chrysalis into a butterfly. A frog has a different cycle: egg, tadpole, froglet and adult frog.
+2.1|When baking soda and vinegar are mixed, they react and make a new gas called carbon dioxide. The bubbles you see are that gas. Making a new substance is the sign of a chemical change. Other signs are a change in temperature, a change in color or a new smell. Mixing sand and water is different, because no new substance is made.
+2.2|A magnet has two ends called poles, a north pole and a south pole. Opposite poles attract each other and like poles push apart. Magnets attract some metals, such as iron, nickel and cobalt, but not wood, plastic or glass. The magnetic force works through air and even through thin paper. A magnet is strongest at its poles.
+2.3|Rocks are made of one or more minerals. Over a very long time, wind, water and ice break rocks into smaller pieces. This is called weathering. The pieces mix with dead leaves and tiny living things to make soil. Soil has layers. Topsoil is rich in nutrients and is where most plant roots grow. Below it are subsoil and then solid rock.
+3.0|A food chain shows how energy passes from one living thing to another. It starts with the Sun. Producers, such as grass, make food using sunlight. Consumers eat other living things: herbivores eat plants, carnivores eat animals and omnivores eat both. Decomposers, such as fungi and bacteria, break down dead plants and animals and return nutrients to the soil. In grass, rabbit, fox, the arrows show the direction the energy flows.
+3.1|Acids taste sour, like lemon juice and vinegar. Bases feel slippery and taste bitter, like soap. Scientists use the pH scale from 0 to 14: below 7 is acidic, 7 is neutral like pure water, and above 7 is basic. Indicators, such as red cabbage juice, change color to show which one a liquid is. Never taste unknown liquids.
+3.2|Light travels in straight lines, which is why shadows have clear edges. Sound is made by vibrations that travel as waves through air, water or solids. Sound cannot travel through empty space, but light can. Light is much faster than sound, which is why we see lightning before we hear the thunder.
+3.3|The water cycle is the never-ending journey of water around Earth. The Sun heats oceans, lakes and rivers, and some water evaporates into an invisible gas called water vapor. High in the cold air, the vapor condenses into tiny droplets that gather as clouds. When the droplets grow heavy, they fall as precipitation: rain, snow, sleet or hail. The water collects in rivers, lakes, oceans and underground, and the cycle begins again.
+4.0|Your body is organized into systems that work together. The digestive system breaks food down so the body can use its nutrients. The respiratory system brings in oxygen and removes carbon dioxide. The circulatory system, with the heart pumping blood through vessels, delivers oxygen and nutrients to every cell. The nervous system, led by the brain, sends signals. The skeletal and muscular systems support the body and move it.
+4.1|A mixture is two or more substances that are together but not chemically joined, so each keeps its own properties. Mixtures can be separated by physical methods. Filtering separates sand from water. Evaporation leaves salt behind when the water dries up. A magnet can pull iron out of a mixture. A solution is a mixture in which one substance is evenly dissolved in another.
+4.2|Gravity is a force that pulls objects toward each other. Because Earth is so massive, it pulls everything toward its center, which gives things weight. Friction is a force that resists sliding between surfaces that touch. Rough surfaces make more friction than smooth ones. Friction turns some movement energy into heat, which is why rubbing your hands together warms them.
+4.3|The solar system is the Sun and everything that travels around it. The eight planets, in order from the Sun, are Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus and Neptune. The first four are small and rocky. Jupiter and Saturn are gas giants, and Uranus and Neptune are ice giants. A planet’s year is the time it takes to orbit the Sun: Earth takes about 365 days, and Neptune takes about 165 Earth years.
+5.0|Cells are the basic units of life. Some living things, like bacteria, have just one cell, while people have trillions. Most cells have a cell membrane that controls what goes in and out, a nucleus that holds DNA and acts as the control center, cytoplasm where chemical reactions happen, and mitochondria that release energy from food. Plant cells also have a rigid cell wall and chloroplasts, where photosynthesis happens.
+5.1|Everything around you is made of atoms. An atom has a tiny nucleus in the center, made of positively charged protons and neutral neutrons, with negatively charged electrons moving around it. The number of protons decides which element an atom is. Hydrogen has 1 proton, carbon has 6 and oxygen has 8. An element is a substance made of only one kind of atom.
+5.2|Electric current is the flow of electric charge, carried by electrons moving through a wire. A circuit needs a source such as a battery, a conductor such as copper wire and a load such as a bulb, joined in a closed loop. If the loop is broken, for example by an open switch, the current stops. Metals are conductors, and rubber and plastic are insulators.
+5.3|Earth’s hard outer shell is broken into huge pieces called tectonic plates. They move very slowly, only a few centimeters each year, about as fast as fingernails grow. Where plates collide, pull apart or slide past each other, we find earthquakes, volcanoes and mountain building. The Himalayas are rising because the Indian Plate is pushing into the Eurasian Plate. Many volcanoes lie along the Ring of Fire around the Pacific Ocean.
+5.7|Earth has four main layers. The crust is the thin, solid outer skin, about 5 to 70 km thick, and it is where we live. Below it, the mantle is about 2,900 km thick and is made of hot rock that flows very slowly. The outer core is liquid iron and nickel, about 2,200 km thick. At the center, the inner core is a solid ball of iron and nickel with a radius of about 1,220 km. It is extremely hot, around 5,000°C or more, but huge pressure keeps it solid.
+5.9|The periodic table organizes all 118 known elements in order of atomic number, which is the number of protons in each atom. Each row is called a period and each column is called a group. Elements in the same group behave in similar ways. Metals fill the left and middle, nonmetals sit on the right, and metalloids lie along the staircase line between them. Hydrogen is a nonmetal even though it sits at the top left. Group 18 holds the noble gases, which rarely react. The colors show the families of elements.`
+.split("\n").forEach(r=>{const i=r.indexOf("|"),k=r.slice(0,i).split(".");D.t[k[0]][k[1]][3]=r.slice(i+1)});
+const E="H He Li Be B C N O F Ne Na Mg Al Si P S Cl Ar K Ca Sc Ti V Cr Mn Fe Co Ni Cu Zn Ga Ge As Se Br Kr Rb Sr Y Zr Nb Mo Tc Ru Rh Pd Ag Cd In Sn Sb Te I Xe Cs Ba La Ce Pr Nd Pm Sm Eu Gd Tb Dy Ho Er Tm Yb Lu Hf Ta W Re Os Ir Pt Au Hg Tl Pb Bi Po At Rn Fr Ra Ac Th Pa U Np Pu Am Cm Bk Cf Es Fm Md No Lr Rf Db Sg Bh Hs Mt Ds Rg Cn Nh Fl Mc Lv Ts Og".split(" ");
+const PC={alk:["Alkali metals","#ff8a80","Li Na K Rb Cs Fr"],ae:["Alkaline earth metals","#ffb74d","Be Mg Ca Sr Ba Ra"],tm:["Transition metals","#ffe082",""],pt:["Other metals","#aed581","Al Ga In Sn Tl Pb Bi Po Nh Fl Mc Lv"],md:["Metalloids","#80cbc4","B Si Ge As Sb Te"],nm:["Nonmetals","#81d4fa","H C N O P S Se"],hal:["Halogens","#b39ddb","F Cl Br I At Ts"],ng:["Noble gases","#f48fb1","He Ne Ar Kr Xe Rn Og"],lan:["Lanthanides","#bcaaa4",""],act:["Actinides","#c5cae9",""]};
+function ptable(){let h="";E.forEach((y,i)=>{const z=i+1;let r,c;
+ if(z==1){r=1;c=1}else if(z==2){r=1;c=18}else if(z<=4){r=2;c=z-2}else if(z<=10){r=2;c=z+8}else if(z<=12){r=3;c=z-10}else if(z<=18){r=3;c=z}else if(z<=36){r=4;c=z-18}else if(z<=54){r=5;c=z-36}else if(z<=56){r=6;c=z-54}else if(z<=70){r=9;c=z-54}else if(z==71){r=6;c=3}else if(z<=86){r=6;c=z-68}else if(z<=88){r=7;c=z-86}else if(z<=102){r=10;c=z-86}else if(z==103){r=7;c=3}else{r=7;c=z-100}
+ let k=z>=57&&z<=71?"lan":z>=89&&z<=103?"act":Object.keys(PC).find(q=>PC[q][2].split(" ").includes(y))||"tm";
+ h+=`<span style="grid-row:${r};grid-column:${c};background:${PC[k][1]}" title="${y}: atomic number ${z}, ${PC[k][0]}"><small>${z}</small>${y}</span>`});
+ return `<div class="scroll"><div class="pt">${h}</div></div><div class="lg">${Object.values(PC).map(v=>`<span><i style="background:${v[1]}"></i>${v[0]}</span>`).join("")}</div><p class="cap">Each row is a period (1 to 7). Each column is a group (1 to 18). The small number is the atomic number. Lanthanides and actinides are shown in the two rows below the main table.</p>`}
+function atom(){let n="";for(let i=0;i<12;i++){const a=i*Math.PI/6;n+=`<circle cx="${(Math.cos(a)*8).toFixed(1)}" cy="${(Math.sin(a)*8).toFixed(1)}" r="5.5" fill="${i%2?"#9e9e9e":"#e53935"}"/>`}
+ const e=(r,k,d)=>`<g><animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="${d}s" repeatCount="indefinite"/>`+Array.from({length:k},(_,i)=>{const a=i*2*Math.PI/k;return `<circle cx="${(Math.cos(a)*r).toFixed(1)}" cy="${(Math.sin(a)*r).toFixed(1)}" r="4" fill="#2979ff"/>`}).join("")+"</g>";
+ return `<svg viewBox="-100 -75 200 150" role="img" aria-label="Carbon atom with 6 protons, 6 neutrons and 6 electrons"><rect x="-100" y="-75" width="200" height="150" fill="#0b1030"/><circle r="32" fill="none" stroke="#ffffff55"/><circle r="60" fill="none" stroke="#ffffff55"/>${e(32,2,3)}${e(60,4,6)}${n}</svg><p class="cap">A carbon atom: 6 protons (red) and 6 neutrons (gray) in the nucleus, and 6 electrons (blue) moving around it. Not to scale.</p>`}
+function solar(){const P=[["#9e9e9e",28,4,3],["#e6b800",42,7,4],["#2e86de",56,10,4],["#e55039",70,14,3.5],["#d9a066",94,24,8],["#e8c872",117,32,7],["#7fdbda",139,44,6],["#3c5fd9",159,56,6]];
+ return `<svg viewBox="0 0 340 340" role="img" aria-label="Animated solar system with eight planets orbiting the Sun"><rect width="340" height="340" fill="#0b1030"/><circle cx="170" cy="170" r="14" fill="#ffd84d"/>`+P.map(([c,r,d,z])=>`<circle cx="170" cy="170" r="${r}" fill="none" stroke="#ffffff33"/><g><animateTransform attributeName="transform" type="rotate" from="0 170 170" to="360 170 170" dur="${d}s" repeatCount="indefinite"/><circle cx="${170+r}" cy="170" r="${z}" fill="${c}"/></g>`).join("")+`</svg><p class="cap">In order from the Sun: Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune. Sizes and distances are not to scale.</p>`}
+const water=()=>`<svg viewBox="0 0 400 220" role="img" aria-label="Water cycle: evaporation, condensation, precipitation and collection"><rect width="400" height="220" fill="#d6f0ff"/><circle cx="360" cy="32" r="20" fill="#ffd84d"/><path d="M0 170L80 90L160 170Z" fill="#8d9db6"/><rect y="170" width="400" height="50" fill="#4a9be8"/><g fill="#fff"><ellipse cx="170" cy="55" rx="48" ry="20"/><ellipse cx="205" cy="45" rx="36" ry="18"/></g><g stroke-width="3" fill="none" stroke-dasharray="7 7"><path d="M165 80V120M185 80V120M205 80V120" stroke="#1e5fa8"><animate attributeName="stroke-dashoffset" from="0" to="-28" dur="1s" repeatCount="indefinite"/></path><path d="M300 165V70" stroke="#e67e22"><animate attributeName="stroke-dashoffset" from="0" to="28" dur="1.2s" repeatCount="indefinite"/></path><path d="M100 120L180 160" stroke="#1e5fa8"/></g><g fill="#17224d" font-size="12" font-weight="700"><text x="305" y="110">1 Evaporation</text><text x="225" y="40">2 Condensation</text><text x="215" y="115">3 Precipitation</text><text x="190" y="200">4 Collection</text></g></svg><p class="cap">Water evaporates, condenses into clouds, falls as precipitation, and collects to begin again.</p>`;
+const layers=()=>`<svg viewBox="0 0 450 215" role="img" aria-label="Layers of the Earth: crust, mantle, outer core and inner core"><circle cx="107" cy="107" r="100" fill="#8d6e63"/><circle cx="107" cy="107" r="96" fill="#ef6c00"/><circle cx="107" cy="107" r="55" fill="#fbc02d"/><circle cx="107" cy="107" r="19" fill="#e53935"/><g stroke="currentColor" fill="none"><path d="M156 20L215 26M177 82L215 72M145 118L215 118M115 114L215 168"/></g><g fill="currentColor" font-size="12"><text x="220" y="24" font-weight="700">Crust</text><text x="220" y="38">5 to 70 km thick, solid rock</text><text x="220" y="70" font-weight="700">Mantle</text><text x="220" y="84">about 2,900 km thick, hot flowing rock</text><text x="220" y="116" font-weight="700">Outer core</text><text x="220" y="130">about 2,200 km thick, liquid metal</text><text x="220" y="166" font-weight="700">Inner core</text><text x="220" y="180">radius about 1,220 km, solid metal</text></g></svg><p class="cap">Not exactly to scale: the crust is drawn thicker than it really is.</p>`;
+const FIG={"3.3":water,"4.3":solar,"5.1":atom,"5.7":layers,"5.9":ptable};
+try{const s=JSON.parse(localStorage.getItem("sparklab5")||"null");if(s){D.h=s.h||D.h;if(s.t&&s.t.length==6)D.t=s.t;if(s.f&&s.f.length)D.f=s.f}}catch(e){}
+const $=id=>document.getElementById(id),esc=s=>String(s).replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
+const save=()=>{try{localStorage.setItem("sparklab5",JSON.stringify({h:D.h,t:D.t,f:D.f}))}catch(e){}};
+let deck=[],by={},sub="all",g="all",qi=0,sc=0,fi=0,ed=false;
+function applyEdit(){document.querySelectorAll("[data-k]").forEach(e=>{e.contentEditable=ed?"true":"false"});$("reset").hidden=!ed}
+function render(k){
+  const A=g=="all",gs=A?[0,1,2,3,4,5]:[g];let c=0;
+  document.documentElement.style.setProperty("--c","var(--g"+(A?3:g+1)+")");
+  $("topics").innerHTML=gs.map(gi=>D.t[gi].map((x,n)=>{if(sub!="all"&&x[4]!=sub)return"";c++;return `<article class="card${gi==5&&n==9?" wide":""}" style="--c:var(--g${gi+1})"><div class="band"><span class="ic" aria-hidden="true">${x[0]}</span><h3 data-k="t.${gi}.${n}.1">${esc(x[1])}</h3></div>${FIG[gi+"."+n]?`<div class="fig">${FIG[gi+"."+n]()}</div>`:pic(gi,n)}<div class="body"><span class="chip">${S[x[4]]}</span> ${A?`<span class="chip">Grade ${gi+1}</span>`:""}<p data-k="t.${gi}.${n}.2">${esc(x[2])}</p>${x[3]?`<button class="try" aria-expanded="false">📖 Read the full lesson</button><p class="act" data-k="t.${gi}.${n}.3">${esc(x[3])}</p>`:""}<a class="vid" target="_blank" rel="noopener" href="https://www.youtube.com/results?search_query=${encodeURIComponent(x[1]+" science for kids")}">▶ Find a video</a></div></article>`}).join("")).join("");
+  $("gh").textContent=(A?"All grades":"Grade "+(g+1))+": "+c+" lessons"+(sub=="all"?"":" in "+S[sub].split(" ").slice(1).join(" "));
+  document.querySelectorAll(".gb").forEach(b=>b.setAttribute("aria-pressed",b.dataset.g==String(g)));
+  document.querySelectorAll(".sb").forEach(b=>{const k=b.dataset.s,m=gs.reduce((t,gi)=>t+D.t[gi].filter(x=>k=="all"||x[4]==k).length,0);b.textContent=b.dataset.l+" ("+m+")";b.setAttribute("aria-pressed",k==sub)});
+  if(!k){deal();showQ()}applyEdit();
+}
+function pic(g,n){const p=(I[g]||[])[n];if(!p)return"";const c=p[0],a=p.slice(1).split("|").filter(Boolean),m=a.length;
+  return `<div class="pic" role="img" aria-label="Diagram: ${esc(a.join(", "))}">`+a.map((t,i)=>{const k=t.indexOf(" ");return (i?`<span class="cn" aria-hidden="true">${c==">"?"→":c=="+"?(i==m-1?"=":"+"):""}</span>`:"")+`<figure aria-hidden="true"${c==">"?` style="animation:pl ${m}s ${i}s infinite"`:""}><span class="em">${t.slice(0,k)}</span><figcaption>${esc(t.slice(k+1))}</figcaption></figure>`}).join("")+"</div>"}
+function deal(){const r=()=>Math.random()-.5;deck=(g=="all"?Q.flat():Q[g]).map(x=>{const o=x.o.map((t,i)=>[t,i==x.a]).sort(r);return{s:x.s,q:x.q,o:o.map(v=>v[0]),a:o.findIndex(v=>v[1])}}).sort(r).slice(0,10);qi=0;sc=0;by={}}
+function showQ(){
+  const b=$("qbox"),n=deck.length;
+  if(qi>=n){const r=sc>=9?"🏆 Super Scientist":sc>=7?"🥇 Lab Expert":sc>=5?"🔭 Explorer":"🌱 Rising Scientist";
+    b.innerHTML=`<p class="res">${sc} / ${n}</p><p class="rk">${r} (${Math.round(sc/n*100)}%)</p><p aria-hidden="true">${"⭐".repeat(Math.ceil(sc/2))}</p><div class="by">${Object.keys(S).map(k=>`<span class="chip">${S[k]}: ${(by[k]||[0,0])[0]} of ${(by[k]||[0,0])[1]}</span>`).join("")}</div><p>${sc==n?"Perfect score! Amazing work!":"Read the topics above, then play again to beat your score."}</p><button class="btn" id="again">Play again</button>`;return}
+  const q=deck[qi];
+  b.innerHTML=`<div class="bar" role="progressbar" aria-valuenow="${qi}" aria-valuemin="0" aria-valuemax="${n}"><i style="width:${qi/n*100}%"></i></div><p class="qq">Question ${qi+1} of ${n}, ${S[q.s]}. Score: ${sc}</p><h3>${q.q}</h3><div class="opts">${q.o.map((o,i)=>`<button class="opt" data-i="${i}">${o}</button>`).join("")}</div><p id="fb" role="status"></p>`;
+}
+$("qbox").addEventListener("click",e=>{
+  const t=e.target;
+  if(t.id=="again"){deal();showQ();return}
+  if(t.id=="next"){qi++;showQ();return}
+  if(!t.classList.contains("opt"))return;
+  const q=deck[qi],i=+t.dataset.i,ok=i==q.a,r=by[q.s]=by[q.s]||[0,0];r[1]++;
+  document.querySelectorAll(".opt").forEach(o=>{o.disabled=true;if(+o.dataset.i==q.a)o.classList.add("ok")});
+  if(ok){sc++;r[0]++}else t.classList.add("no");
+  $("fb").innerHTML=(ok?"Correct! 🎉 +1 point":"Not quite. The answer is "+q.o[q.a]+".")+` <button class="btn" id="next">${qi+1<n()?"Next question":"See my score"}</button>`;
+  $("next").focus();
+});
+function n(){return deck.length}
+$("topics").addEventListener("click",e=>{
+  const b=e.target.closest(".try");if(!b)return;
+  const a=b.nextElementSibling,on=a.classList.toggle("on");
+  b.setAttribute("aria-expanded",on);b.textContent=on?"Hide lesson":"📖 Read the full lesson";
+});
+$("grades").innerHTML=[0,1,2,3,4,5].map(i=>`<button class="gb" style="--c:var(--g${i+1})" data-g="${i}">Grade ${i+1}</button>`).join("")+`<button class="gb" style="--c:linear-gradient(90deg,var(--g1),var(--g3),var(--g4),var(--g6))" data-g="all">All grades</button>`;
+$("grades").addEventListener("click",e=>{const b=e.target.closest(".gb");if(b){g=b.dataset.g=="all"?"all":+b.dataset.g;render()}});
+const S={bio:"🧬 Biology",chem:"⚗️ Chemistry",phy:"⚡ Physics",earth:"🌍 Earth Science"};
+$("subs").innerHTML=[["all","🔭 All science"],...Object.entries(S)].map(([k,v])=>`<button class="sb" data-l="${v}" data-s="${k}">${v}</button>`).join("");
+$("subs").addEventListener("click",e=>{const b=e.target.closest(".sb");if(b){sub=b.dataset.s;render(1)}});
+function showF(){const e=$("fact");e.dataset.k="f."+fi;e.textContent=D.f[fi];applyEdit()}
+$("more").onclick=()=>{fi=(fi+1+Math.floor(Math.random()*(D.f.length-1)))%D.f.length;showF()};
+$("edit").onclick=()=>{ed=!ed;document.body.classList.toggle("editing",ed);$("edit").textContent=ed?"Done editing":"Edit page";$("edit").setAttribute("aria-pressed",ed);applyEdit()};
+$("reset").onclick=()=>{try{localStorage.removeItem("sparklab5")}catch(e){}location.reload()};
+document.addEventListener("input",e=>{
+  const k=e.target.dataset&&e.target.dataset.k;if(!k)return;
+  const a=k.split(".");let o=D;for(let i=0;i<a.length-1;i++)o=o[a[i]];o[a[a.length-1]]=e.target.textContent;save();
+});
+document.addEventListener("paste",e=>{if(e.target.dataset&&e.target.dataset.k){e.preventDefault();document.execCommand("insertText",false,e.clipboardData.getData("text/plain"))}});
+document.querySelectorAll(".goq").forEach(b=>b.onclick=()=>$("quiz").scrollIntoView({behavior:"smooth"}));
+$("ht").textContent=D.h.title;$("hs").textContent=D.h.sub;
+fi=Math.floor(Math.random()*D.f.length);showF();render();
+</script>
+</body>
+</html>
